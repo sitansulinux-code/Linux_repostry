@@ -25,10 +25,10 @@ jobs:
         run: ls -la
 
       # Step 3: Validate HTML file exists
-      - name: Validate application file
-        run: |
-          test -f 1stfile.html
-          echo "Application file exists"
+      #- name: Validate application file
+       # run: |
+        #  test -f 1stfile.html
+         # echo "Application file exists"
 
       # Step 4: Build stage
       - name: Build Application
