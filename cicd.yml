@@ -1,0 +1,43 @@
+name: CI Pipeline
+
+# When should this pipeline run?
+on:
+  push:
+    branches:
+      - main
+
+# Jobs define the tasks that GitHub Actions will execute
+jobs:
+
+  build-and-test:
+
+    # GitHub provides an Ubuntu machine to run this pipeline
+    runs-on: ubuntu-latest
+
+    steps:
+
+      # Step 1: Download your repository code into the runner machine
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Check repository files
+      - name: List files
+        run: ls -la
+
+      # Step 3: Validate HTML file exists
+      - name: Validate application file
+        run: |
+          test -f 1stfile.html
+          echo "Application file exists"
+
+      # Step 4: Build stage
+      - name: Build Application
+        run: echo "Building application..."
+
+      # Step 5: Test stage
+      - name: Run Tests
+        run: echo "Running application tests..."
+
+      # Step 6: Pipeline completion
+      - name: CI Completed
+        run: echo "CI Pipeline completed successfully"
